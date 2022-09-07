@@ -1,20 +1,19 @@
 import static java.lang.Integer.parseInt;
 
 public class Converter {
-    public int convertToDecimal(String quaternaryNumberToConvert) {
+    public int convertToDecimal(String quaternaryNumberToConvert) {     // Converts base 4 number to base 10 number.
         int convertedDecimalNumber = 0;
         int placeValue = 1;
         for(int i = 0; i < quaternaryNumberToConvert.length(); i++) {
             int value = parseInt(String.valueOf(quaternaryNumberToConvert.charAt(quaternaryNumberToConvert.length()-i-1)));
-            convertedDecimalNumber += value * placeValue;
+            // Reads value of string index from right to left
+            convertedDecimalNumber += value * placeValue; // takes value in string index and multiplies it by place value.
             placeValue = placeValue * 4;
         }
         return convertedDecimalNumber;
     }
 
-    // Converts base 10 number to base 4 by repeatedly dividing the decimal number
-    // and appending the remainder to a string.
-    public String convertToQuaternary(int decimalNumberToConvert) {
+    public String convertToQuaternary(int decimalNumberToConvert) {     // Converts base 10 number to base 4 number.
         StringBuilder stringBuilder = new StringBuilder(); // StringBuilder is used to append remainder.
         while(decimalNumberToConvert != 0) {
             int quotient = decimalNumberToConvert / 4;
