@@ -8,7 +8,7 @@ public class Converter {
         int placeValue = 1;
         boolean isNegative = false;
 
-        if (quaternaryNumberToConvert.contains("-")) { // checks to see if base 4 number is negative and if so removes sign.
+        if (quaternaryNumberToConvert.contains("-")) { // Checks if base 4 number is negative and if so removes sign.
             quaternaryNumberToConvert = quaternaryNumberToConvert.replace("-", "");
             isNegative = true;
         }
@@ -18,18 +18,18 @@ public class Converter {
             convertedDecimalNumber += value * placeValue; // takes value in string index and multiplies it by place value.
             placeValue *= 4;
         }
-        if (isNegative == true) // Returns negative sign to int after conversion.
+        if (isNegative) // Returns negative sign to int after conversion.
             convertedDecimalNumber *= -1;
         return convertedDecimalNumber;
     }
 
-    public String convertToQuaternary(int decimalNumberToConvert) {     // Converts base 10 number to base 4 number.
-        StringBuilder remainderList = new StringBuilder(); // StringBuilder is used to append remainders to list.
+    public String convertToQuaternary(int decimalNumberToConvert) { // Converts base 10 number to base 4 number.
+        StringBuilder remainderList = new StringBuilder(); // StringBuilder is used to make quaternary string from remainders.
         boolean isNegative = false;
-        if(decimalNumberToConvert == 0) {
+        if(decimalNumberToConvert == 0) { // Checks if base 10 number is 0 to skip conversion.
             return "0";
         } else {
-            if(decimalNumberToConvert < 0) {
+            if(decimalNumberToConvert < 0) {  // Checks if base 10 number is negative and if so removes sign.
                 decimalNumberToConvert *= -1;
                 isNegative = true;
             }
@@ -39,9 +39,9 @@ public class Converter {
                 decimalNumberToConvert = quotient;
                 remainderList.append(remainder);
                 }
-            if (isNegative) {
+            if (isNegative) { // Returns negative sign to str after conversion.
                 remainderList.append("-");
-            } // Remainder string has been appended backwards and needs to be reversed.
+            } // remainderList string has been appended backwards and therefore needs to be reversed.
             return String.valueOf(remainderList.reverse());
         }
     }
