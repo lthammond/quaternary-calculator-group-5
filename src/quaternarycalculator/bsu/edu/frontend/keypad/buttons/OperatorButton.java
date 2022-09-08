@@ -2,10 +2,13 @@ package quaternarycalculator.bsu.edu.frontend.keypad.buttons;
 
 import javax.swing.*;
 
-abstract class FunctionButton extends JButton {
+public class Button extends JButton {
     private String character;
-
-    public FunctionButton (String chr){
+    public Button(String chr) {
         this.character = chr;
     }
+    public String getCharacter(){
+        return this.character;
+    }
+
 }
