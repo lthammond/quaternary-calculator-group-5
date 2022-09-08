@@ -6,6 +6,7 @@ public class OperatorButton extends JButton {
     private String character;
     public OperatorButton(String chr) {
         this.character = chr;
+        this.setText(chr);
     }
     public String getCharacter(){
         return this.character;
