@@ -1,4 +1,4 @@
-package quaternarycalculator.bsu.edu;
+package quaternarycalculator.bsu.edu.backend;
 
 import static java.lang.Integer.parseInt;
 
