@@ -1,9 +1,20 @@
 package quaternarycalculator.bsu.edu.frontend.keypad;
 
-import javax.swing.*;
+import quaternarycalculator.bsu.edu.frontend.keypad.buttons.OperatorButton;
 
-public class KeyPad extends JFrame {
+import javax.swing.*;
+import java.util.ArrayList;
+
+public class KeyPad extends JPanel {
     public KeyPad(){
+        String[] operators = {"+","-","x²","√"};
+        ArrayList<OperatorButton> operatorButtons = new ArrayList<>();
+        for (String i :operators){
+            operatorButtons.add(new OperatorButton(i));
+        }
+        for (OperatorButton b : operatorButtons){
+            this.add(b);
+        }
 
     }
 }
