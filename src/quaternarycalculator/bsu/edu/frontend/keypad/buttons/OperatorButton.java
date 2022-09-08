@@ -2,9 +2,9 @@ package quaternarycalculator.bsu.edu.frontend.keypad.buttons;
 
 import javax.swing.*;
 
-public class Button extends JButton {
+public class OperatorButton extends JButton {
     private String character;
-    public Button(String chr) {
+    public OperatorButton(String chr) {
         this.character = chr;
     }
     public String getCharacter(){
