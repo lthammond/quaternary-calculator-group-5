@@ -1,3 +1,5 @@
+package quaternarycalculator.bsu.edu;
+
 import static java.lang.Integer.parseInt;
 
 public class Converter {
@@ -21,7 +23,7 @@ public class Converter {
             decimalNumberToConvert = quotient;
             stringBuilder.append(remainder);
         } // Remainder string has been appended backwards and needs to be reversed.
-        String convertedQuaternaryNumber = String.valueOf(stringBuilder.reverse());
-        return convertedQuaternaryNumber;
+        return String.valueOf(stringBuilder.reverse());
+
     }
 }
