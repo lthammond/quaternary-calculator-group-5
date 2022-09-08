@@ -36,6 +36,14 @@ public class ConverterTests {
     }
 
     @Test
+    public void testConvertToQuaternary5() {
+        int decimalNumber = -8;
+        Converter converter = new Converter();
+        String quaternaryNumber = converter.convertToQuaternary(decimalNumber);
+        Assertions.assertEquals("-20", quaternaryNumber);
+    }
+
+    @Test
     public void testConvertToDecimal1() {
         String quaternaryNumber = "0";
         Converter converter = new Converter();
@@ -65,5 +73,13 @@ public class ConverterTests {
         Converter converter = new Converter();
         int decimalNumber = converter.convertToDecimal(quaternaryNumber);
         Assertions.assertEquals(1337, decimalNumber);
+    }
+
+    @Test
+    public void testConvertToDecimal5() {
+        String quaternaryNumber = "-200";
+        Converter converter = new Converter();
+        int decimalNumber = converter.convertToDecimal(quaternaryNumber);
+        Assertions.assertEquals(-32, decimalNumber);
     }
 }
