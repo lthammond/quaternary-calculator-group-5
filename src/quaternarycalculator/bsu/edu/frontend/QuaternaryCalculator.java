@@ -1,5 +1,6 @@
 package quaternarycalculator.bsu.edu.frontend;
 
+
 import quaternarycalculator.bsu.edu.frontend.digitdisplay.DigitDisplay;
 import quaternarycalculator.bsu.edu.frontend.keypad.KeyPad;
 
@@ -13,12 +14,11 @@ public class QuaternaryCalculator extends JFrame{
         DigitDisplay digitDisplay = new DigitDisplay();
         this.add(digitDisplay);
 
-
         KeyPad keyPad = new KeyPad();
         this.add(keyPad);
 
-
-
+        Footer footer = new Footer();
+        this.add(footer);
         //this.pack(); this will override the setSize and auto adjust size to elements
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
