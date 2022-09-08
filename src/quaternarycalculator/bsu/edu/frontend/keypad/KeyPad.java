@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class KeyPad extends JPanel {
     public KeyPad(){
         String[] operations = {"+","-","*","/","Sqr","root"};
+
         ArrayList<OperatorButton> operatorButtons = new ArrayList<>();
         for (String i :operations){
             operatorButtons.add(new OperatorButton(i));
