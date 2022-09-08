@@ -4,11 +4,11 @@ import javax.swing.*;
 
 public class OperatorButton extends JButton {
     private String character;
-    public OperatorButton(String chr) {
-        this.character = chr;
-        this.setText(chr);
+    public OperatorButton(String character) {
+        this.character = character;
+        this.setText(character);
     }
-    public String getCharacter(){
+    public String getSymbol(){
         return this.character;
     }
 
