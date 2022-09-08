@@ -17,13 +17,16 @@ public class Converter {
 
     public String convertToQuaternary(int decimalNumberToConvert) {     // Converts base 10 number to base 4 number.
         StringBuilder stringBuilder = new StringBuilder(); // StringBuilder is used to append remainder.
-        while(decimalNumberToConvert != 0) {
-            int quotient = decimalNumberToConvert / 4;
-            int remainder = decimalNumberToConvert % 4;
-            decimalNumberToConvert = quotient;
-            stringBuilder.append(remainder);
-        } // Remainder string has been appended backwards and needs to be reversed.
-        return String.valueOf(stringBuilder.reverse());
-
+        if(decimalNumberToConvert == 0) {
+            return "0";
+        } else {
+            while (decimalNumberToConvert != 0) {
+                int quotient = decimalNumberToConvert / 4;
+                int remainder = decimalNumberToConvert % 4;
+                decimalNumberToConvert = quotient;
+                stringBuilder.append(remainder);
+            } // Remainder string has been appended backwards and needs to be reversed.
+            return String.valueOf(stringBuilder.reverse());
+        }
     }
 }
