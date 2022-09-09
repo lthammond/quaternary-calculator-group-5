@@ -146,4 +146,68 @@ public class OperatorTests {
         String quot = operator.doOperation("/", dividend, divisor);
         Assertions.assertEquals("3", quot);
     }
+
+    @Test
+    public void squareTest1(){
+        String root= "1";
+        Operator operator = new Operator();
+        String sqr = operator.sqr(root);
+        Assertions.assertEquals("1", sqr);
+    }
+
+    @Test
+    public void squareTest2(){
+        String root= "2";
+        Operator operator = new Operator();
+        String sqr = operator.sqr(root);
+        Assertions.assertEquals("10", sqr);
+    }
+
+    @Test
+    public void squareTest3(){
+        String root= "10";
+        Operator operator = new Operator();
+        String sqr = operator.sqr(root);
+        Assertions.assertEquals("100", sqr);
+    }
+
+    @Test
+    public void squareTest4(){
+        String root= "12";
+        Operator operator = new Operator();
+        String sqr = operator.sqr(root);
+        Assertions.assertEquals("210", sqr);
+    }
+
+    @Test
+    public void sqrtTest1(){
+        String square= "10";
+        Operator operator = new Operator();
+        String sqrt = operator.sqrt(square);
+        Assertions.assertEquals("2", sqrt);
+    }
+
+    @Test
+    public void sqrtTest2(){
+        String square= "100";
+        Operator operator = new Operator();
+        String sqrt = operator.sqrt(square);
+        Assertions.assertEquals("10", sqrt);
+    }
+
+    @Test
+    public void sqrtTest3(){ //Notice: root is rounded as a decimal before conversion back to quaternary
+        String square= "120";
+        Operator operator = new Operator();
+        String sqrt = operator.sqrt(square);
+        Assertions.assertEquals("11", sqrt);
+    }
+
+    @Test
+    public void sqrtTest4(){
+        String square= "232";
+        Operator operator = new Operator();
+        String sqrt = operator.sqrt(square);
+        Assertions.assertEquals("13", sqrt);
+    }
 }
