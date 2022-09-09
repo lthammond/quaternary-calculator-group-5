@@ -40,4 +40,19 @@ public class Operator {
                 throw new IllegalArgumentException("Unexpected Operation: " + operationSymbol);
         }
     }
+
+    public String sqr(String root) {
+        int droot = converter.convertToDecimal(root);
+        int dsquare = droot * droot;
+        return converter.convertToQuaternary(dsquare);
+    }
+
+    public String sqrt(String square) {
+        int dsquare = converter.convertToDecimal(square);
+        double dsqrt = Math.sqrt(dsquare);
+        int roundedsqrt = (int)Math.round(dsqrt);
+        return converter.convertToQuaternary(roundedsqrt);
+    }
+
+
 }
