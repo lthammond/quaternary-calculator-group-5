@@ -1,13 +1,15 @@
 package quaternarycalculator.bsu.edu.frontend.digitdisplay;
 
+import quaternarycalculator.bsu.edu.backend.Converter;
+
 import javax.lang.model.type.NullType;
 import javax.swing.*;
 
 public class DigitDisplay extends JPanel {
     private JLabel displayLabel;
     private JButton toggleBtn;
-
     public DigitDisplay(){
+
         this.displayLabel = new JLabel();
         this.toggleBtn = new JButton("Toggle base10");
 

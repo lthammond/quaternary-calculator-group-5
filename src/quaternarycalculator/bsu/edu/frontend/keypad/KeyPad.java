@@ -19,7 +19,7 @@ public class KeyPad extends JPanel {
 
     public KeyPad(){
         //TODO: reduce redundant code
-        String[] numbers = {"1","2","3","4"};
+        String[] numbers = {"0","1","2","3"};
         this.numberButtons = new ArrayList<>();
         for (String i :numbers){
             this.numberButtons.add(new KeyPadButton(i));

@@ -1,20 +1,25 @@
 package quaternarycalculator.bsu.edu.frontend;
 
 
-import org.w3c.dom.ls.LSOutput;
-import quaternarycalculator.bsu.edu.frontend.digitdisplay.DigitDisplay;
+import quaternarycalculator.bsu.edu.backend.Operator;
 import quaternarycalculator.bsu.edu.frontend.digitdisplay.DigitDisplayController;
-import quaternarycalculator.bsu.edu.frontend.keypad.KeyPad;
 import quaternarycalculator.bsu.edu.frontend.keypad.KeyPadController;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class QuaternaryCalculator extends JFrame{
 
+    ArrayList<String> numbers = new ArrayList<>();
     private DigitDisplayController digitDisplay;
     private KeyPadController keyPad;
+    private Operator backend;
+    private String op;
 
     public QuaternaryCalculator(){
+        this.backend = new Operator();
         this.setSize(600, 800);
 
         digitDisplay = new DigitDisplayController(this);
@@ -31,19 +36,23 @@ public class QuaternaryCalculator extends JFrame{
     }
 
     public void numberButtonPressed(String symbol){
-        System.out.println(symbol);
+        //System.out.println(symbol);
         digitDisplay.numPressed(symbol);
+        this.numbers.add(symbol);
     }
 
     public void operatorButtonPressed(String symbol){
         digitDisplay.opPressed(symbol);
+        this.op = symbol;
     }
     public void resultRequested(){
-        //TODO add logic, remove static string
-        digitDisplay.displayResult("10");
+        digitDisplay.displayResult(this.backend.doOperation(this.op,numbers));
     }
 
     public void requestedClearScreen() {
+        numbers.clear();
+        this.op = null;
         digitDisplay.clear();
+
     }
 }
