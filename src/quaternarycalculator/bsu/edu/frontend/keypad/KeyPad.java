@@ -1,21 +1,44 @@
 package quaternarycalculator.bsu.edu.frontend.keypad;
 
-import quaternarycalculator.bsu.edu.frontend.keypad.buttons.OperatorButton;
+import quaternarycalculator.bsu.edu.frontend.keypad.buttons.KeyPadButton;
 
 import javax.swing.*;
 import java.util.ArrayList;
 
 public class KeyPad extends JPanel {
-    public KeyPad(){
-        String[] operations = {"+","-","*","/","x²","√"};
+    private ArrayList<KeyPadButton> operatorButtons;
+    private ArrayList<KeyPadButton> numberButtons;
 
-        ArrayList<OperatorButton> operatorButtons = new ArrayList<>();
-        for (String i :operations){
-            operatorButtons.add(new OperatorButton(i));
+    public ArrayList<KeyPadButton> getOperatorButtons() {
+        return operatorButtons;
+    }
+
+    public ArrayList<KeyPadButton> getNumberButtons() {
+        return numberButtons;
+    }
+
+    public KeyPad(){
+        //TODO: reduce redundant code
+        String[] numbers = {"1","2","3","4"};
+        this.numberButtons = new ArrayList<>();
+        for (String i :numbers){
+            this.numberButtons.add(new KeyPadButton(i));
         }
-        for (OperatorButton b : operatorButtons){
+        for (KeyPadButton b : this.numberButtons){
             this.add(b);
         }
 
+        String[] operations = {"+","-","*","/","x²","√"};
+        this.operatorButtons = new ArrayList<>();
+        for (String i :operations){
+            this.operatorButtons.add(new KeyPadButton(i));
+        }
+        for (KeyPadButton b : this.operatorButtons){
+            this.add(b);
+        }
+
+
     }
+
+
 }
