@@ -2,11 +2,13 @@ package quaternarycalculator.bsu.edu.frontend.digitdisplay;
 
 import quaternarycalculator.bsu.edu.frontend.QuaternaryCalculator;
 
+import java.util.Arrays;
+
 public class DigitDisplayController {
 
     private DigitDisplay display;
     private QuaternaryCalculator mainFrame;
-    private String operations[] = new String[3];
+    private String operations[] = new String[5];
 
     public DigitDisplayController(QuaternaryCalculator mainFrame) {
         this.mainFrame = mainFrame;
@@ -14,6 +16,11 @@ public class DigitDisplayController {
     }
     public void initialize(){
         this.mainFrame.add(this.display);
+    }
+
+    public void clear(){
+        Arrays.fill(this.operations,null);
+        this.display.updateFromArray(operations);
     }
 
     public void opPressed(String symbol) {
@@ -29,6 +36,11 @@ public class DigitDisplayController {
             operations[2] = symbol;
         }
         this.display.updateFromArray(operations);
+    }
 
+    public void displayResult(String res){
+        operations[3] = "=";
+        operations[4] = res;
+        this.display.updateFromArray(operations);
     }
 }

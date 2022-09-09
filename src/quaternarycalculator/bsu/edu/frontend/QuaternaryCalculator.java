@@ -23,8 +23,8 @@ public class QuaternaryCalculator extends JFrame{
         keyPad = new KeyPadController(this);
         keyPad.initialize();
 
-        Footer footer = new Footer();
-        this.add(footer);
+        Footer footer = new Footer(this);
+        footer.initialize();
         //this.pack(); this will override the setSize and auto adjust size to elements
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -37,5 +37,13 @@ public class QuaternaryCalculator extends JFrame{
 
     public void operatorButtonPressed(String symbol){
         digitDisplay.opPressed(symbol);
+    }
+    public void resultRequested(){
+        //TODO add logic, remove static string
+        digitDisplay.displayResult("10");
+    }
+
+    public void requestedClearScreen() {
+        digitDisplay.clear();
     }
 }
