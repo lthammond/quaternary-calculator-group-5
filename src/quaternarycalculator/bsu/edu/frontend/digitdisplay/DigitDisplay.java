@@ -1,13 +1,11 @@
 package quaternarycalculator.bsu.edu.frontend.digitdisplay;
 
+import javax.lang.model.type.NullType;
 import javax.swing.*;
 
 public class DigitDisplay extends JPanel {
     private JLabel displayLabel;
     private JButton toggleBtn;
-    private String num1;
-    private String num2;
-    private String operator;
 
     public DigitDisplay(){
         this.displayLabel = new JLabel();
@@ -18,18 +16,14 @@ public class DigitDisplay extends JPanel {
     }
 
 
-    public void setNum1(String num1) {
-        this.num1 = num1;
+    public void updateFromArray(String[] displayOrder) {
+        StringBuilder str = new StringBuilder();
+        for(String i : displayOrder){
+            if(i != null){
+                str.append(i);
+                str.append(" ");
+            }
+        }
+        this.displayLabel.setText(str.toString());
     }
-
-    public void setNum2(String num2) {
-        this.num2 = num2;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
-
-
 }

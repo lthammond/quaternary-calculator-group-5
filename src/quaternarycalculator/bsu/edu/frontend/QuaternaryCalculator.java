@@ -31,6 +31,7 @@ public class QuaternaryCalculator extends JFrame{
     }
 
     public void numberButtonPressed(String symbol){
+        System.out.println(symbol);
         digitDisplay.numPressed(symbol);
     }
 
