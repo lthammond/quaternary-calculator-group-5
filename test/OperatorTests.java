@@ -151,7 +151,7 @@ public class OperatorTests {
     public void squareTest1(){
         String root= "1";
         Operator operator = new Operator();
-        String sqr = operator.sqr(root);
+        String sqr = operator.doOperation("x²",root);
         Assertions.assertEquals("1", sqr);
     }
 
@@ -159,7 +159,7 @@ public class OperatorTests {
     public void squareTest2(){
         String root= "2";
         Operator operator = new Operator();
-        String sqr = operator.sqr(root);
+        String sqr = operator.doOperation("x²",root);
         Assertions.assertEquals("10", sqr);
     }
 
@@ -167,7 +167,7 @@ public class OperatorTests {
     public void squareTest3(){
         String root= "10";
         Operator operator = new Operator();
-        String sqr = operator.sqr(root);
+        String sqr = operator.doOperation("x²",root);
         Assertions.assertEquals("100", sqr);
     }
 
@@ -175,7 +175,7 @@ public class OperatorTests {
     public void squareTest4(){
         String root= "12";
         Operator operator = new Operator();
-        String sqr = operator.sqr(root);
+        String sqr = operator.doOperation("x²",root);
         Assertions.assertEquals("210", sqr);
     }
 
@@ -183,7 +183,7 @@ public class OperatorTests {
     public void sqrtTest1(){
         String square= "10";
         Operator operator = new Operator();
-        String sqrt = operator.sqrt(square);
+        String sqrt = operator.doOperation("√",square);
         Assertions.assertEquals("2", sqrt);
     }
 
@@ -191,7 +191,7 @@ public class OperatorTests {
     public void sqrtTest2(){
         String square= "100";
         Operator operator = new Operator();
-        String sqrt = operator.sqrt(square);
+        String sqrt = operator.doOperation("√",square);
         Assertions.assertEquals("10", sqrt);
     }
 
@@ -199,7 +199,7 @@ public class OperatorTests {
     public void sqrtTest3(){ //Notice: root is rounded as a decimal before conversion back to quaternary
         String square= "120";
         Operator operator = new Operator();
-        String sqrt = operator.sqrt(square);
+        String sqrt = operator.doOperation("√",square);
         Assertions.assertEquals("11", sqrt);
     }
 
@@ -207,7 +207,7 @@ public class OperatorTests {
     public void sqrtTest4(){
         String square= "232";
         Operator operator = new Operator();
-        String sqrt = operator.sqrt(square);
+        String sqrt = operator.doOperation("√",square);
         Assertions.assertEquals("13", sqrt);
     }
 }

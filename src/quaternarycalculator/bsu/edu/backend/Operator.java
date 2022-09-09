@@ -41,13 +41,22 @@ public class Operator {
         }
     }
 
-    public String sqr(String root) {
+    public String doOperation(String operationSymbol, String value1){
+        switch(operationSymbol){
+            case "x²": return sqr(value1);
+            case "√": return sqrt(value1);
+            default:
+                throw new IllegalArgumentException("Unexpected Operation: " + operationSymbol);
+        }
+    }
+
+    private String sqr(String root) {
         int droot = converter.convertToDecimal(root);
         int dsquare = droot * droot;
         return converter.convertToQuaternary(dsquare);
     }
 
-    public String sqrt(String square) {
+    private String sqrt(String square) {
         int dsquare = converter.convertToDecimal(square);
         double dsqrt = Math.sqrt(dsquare);
         int roundedsqrt = (int)Math.round(dsqrt);
