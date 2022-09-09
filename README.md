@@ -8,16 +8,17 @@ CC Button to clear display and reset Calculation
 
 
 ## Task Distribution
-###Backend
-Landon Hammond = Addition and Subtraction Functionality
-Landon Hammond = Multiplication and division Functionality
-Cody Lockridge = square and root functionality
-###Front end
-MichaelKnudsen = Number buttons
-MichaelKnudsen = OperatorButtons
-MichaelKnudsen = integrate backend with front end
-Joah De Vries = GUI layout
-Joah De Vries = Toggle Button
+### Backend
+* Landon Hammond = Addition and Subtraction Functionality
+* Landon Hammond = Multiplication and division Functionality
+* Cody Lockridge = square and root functionality
+### Front end
+* MichaelKnudsen = Number buttons
+* MichaelKnudsen = OperatorButtons
+* MichaelKnudsen = integrate backend with front end
+* Joah De Vries = GUI layout
+* Joah De Vries = Toggle Button
+### general
 All members = review README and non functional requirments
 
 
