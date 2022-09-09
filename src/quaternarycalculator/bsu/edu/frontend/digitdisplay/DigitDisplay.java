@@ -7,13 +7,20 @@ public class DigitDisplay extends JPanel {
     private JButton toggleBtn;
     private String num1;
     private String num2;
+    private String operator;
 
+    public DigitDisplay(){
+        this.displayLabel = new JLabel();
+        this.toggleBtn = new JButton("Toggle base10");
+
+        this.add(this.displayLabel);
+        this.add(this.toggleBtn);
+    }
 
 
     public void setNum1(String num1) {
         this.num1 = num1;
     }
-
 
     public void setNum2(String num2) {
         this.num2 = num2;
@@ -21,15 +28,6 @@ public class DigitDisplay extends JPanel {
 
     public void setOperator(String operator) {
         this.operator = operator;
-    }
-
-    private String operator;
-    public DigitDisplay(){
-        this.displayLabel = new JLabel();
-        this.toggleBtn = new JButton();
-
-        this.add(this.displayLabel);
-        this.add(this.toggleBtn);
     }
 
 
