@@ -36,7 +36,7 @@ public class QuaternaryCalculator extends JFrame{
     public void numberButtonPressed(String symbol){
         //System.out.println(symbol);
         digitDisplay.addCharacterToDisplay(symbol);
-        int pos = -1;
+        int pos;
         if (this.op == null){
             pos = 0;
         }else{
@@ -57,8 +57,10 @@ public class QuaternaryCalculator extends JFrame{
     }
 
     public void operatorButtonPressed(String symbol){
-        digitDisplay.addCharacterToDisplay(symbol);
-        this.op = symbol;
+        if(this.op==null){
+            digitDisplay.addCharacterToDisplay(symbol);
+            this.op = symbol;
+        }
     }
     public void resultRequested(){
         digitDisplay.displayResult(this.backend.doOperation(this.op,numbers));
