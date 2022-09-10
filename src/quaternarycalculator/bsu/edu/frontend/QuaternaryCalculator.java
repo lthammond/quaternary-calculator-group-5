@@ -7,8 +7,6 @@ import quaternarycalculator.bsu.edu.frontend.keypad.KeyPadController;
 
 import javax.swing.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 
 public class QuaternaryCalculator extends JFrame{
 
@@ -38,7 +36,24 @@ public class QuaternaryCalculator extends JFrame{
     public void numberButtonPressed(String symbol){
         //System.out.println(symbol);
         digitDisplay.numPressed(symbol);
-        this.numbers.add(symbol);
+        int pos = -1;
+        if (this.op == null){
+            pos = 0;
+        }else{
+            pos = 1;
+        }
+
+        if(this.numbers.isEmpty() && pos == 0){
+            this.numbers.add(symbol);
+        }else if(this.numbers.size()==1 && pos ==0){
+            this.numbers.set(pos,this.numbers.get(pos)+symbol);
+        }else if(this.numbers.size()==2){
+            this.numbers.set(pos,this.numbers.get(pos)+symbol);
+        }else{
+            this.numbers.add(symbol);
+        }
+
+
     }
 
     public void operatorButtonPressed(String symbol){

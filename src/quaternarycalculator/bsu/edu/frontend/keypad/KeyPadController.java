@@ -19,6 +19,7 @@ public class KeyPadController {
     public KeyPad getKeyPad(){
         return this.keyPad;
     }
+
     public void initialize(){
         this.mainFrame.add(this.keyPad);
         this.setNumberButtonEvent();
