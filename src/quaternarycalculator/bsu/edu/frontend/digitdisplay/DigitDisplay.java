@@ -4,17 +4,17 @@ import quaternarycalculator.bsu.edu.backend.Converter;
 
 import javax.lang.model.type.NullType;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class DigitDisplay extends JPanel {
     private JLabel displayLabel;
-    private JButton toggleBtn;
+
     public DigitDisplay(){
 
         this.displayLabel = new JLabel();
-        this.toggleBtn = new JButton("Toggle base10");
-
         this.add(this.displayLabel);
-        this.add(this.toggleBtn);
+
     }
 
     public void updateLabel(String s){

@@ -1,6 +1,7 @@
 package quaternarycalculator.bsu.edu.frontend;
 
 
+import quaternarycalculator.bsu.edu.backend.Converter;
 import quaternarycalculator.bsu.edu.backend.Operator;
 import quaternarycalculator.bsu.edu.frontend.digitdisplay.DigitDisplayController;
 import quaternarycalculator.bsu.edu.frontend.keypad.KeyPadController;
@@ -14,9 +15,15 @@ public class QuaternaryCalculator extends JFrame{
     private DigitDisplayController digitDisplay;
     private KeyPadController keyPad;
     private Operator backend;
+
+    private Converter converter;
+    private Footer footer;
     private String op;
 
+    private boolean decimalMode = false;
+
     public QuaternaryCalculator(){
+
         this.backend = new Operator();
         this.setSize(600, 800);
 
@@ -26,9 +33,9 @@ public class QuaternaryCalculator extends JFrame{
         keyPad = new KeyPadController(this);
         keyPad.initialize();
 
-        Footer footer = new Footer(this);
+        footer = new Footer(this);
         footer.initialize();
-        //this.pack(); this will override the setSize and auto adjust size to elements
+        this.pack();// this will override the setSize and auto adjust size to elements
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
@@ -63,6 +70,8 @@ public class QuaternaryCalculator extends JFrame{
         }
     }
     public void resultRequested(){
+
+        digitDisplay.clear();
         digitDisplay.displayResult(this.backend.doOperation(this.op,numbers));
     }
 
@@ -71,5 +80,18 @@ public class QuaternaryCalculator extends JFrame{
         this.op = null;
         digitDisplay.clear();
 
+    }
+
+    public void toggleResultBase(){
+        Converter converter = new Converter();
+        String result = this.backend.doOperation(this.op, numbers);
+        decimalMode = !decimalMode;
+        if(decimalMode) {
+            digitDisplay.clear();
+            digitDisplay.displayResult(String.valueOf(converter.convertToDecimal(result)));
+        } else {
+            digitDisplay.clear();
+            digitDisplay.displayResult(result);
+        }
     }
 }
