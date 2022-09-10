@@ -17,15 +17,12 @@ public class DigitDisplay extends JPanel {
         this.add(this.toggleBtn);
     }
 
+    public void updateLabel(String s){
+        String cur = this.displayLabel.getText();
+        this.displayLabel.setText(cur+s);
+    }
 
-    public void updateFromArray(String[] displayOrder) {
-        StringBuilder str = new StringBuilder();
-        for(String i : displayOrder){
-            if(i != null){
-                str.append(i);
-                str.append(" ");
-            }
-        }
-        this.displayLabel.setText(str.toString());
+    public void clear(){
+        this.displayLabel.setText("");
     }
 }
