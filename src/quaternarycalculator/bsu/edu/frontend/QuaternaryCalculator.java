@@ -70,8 +70,7 @@ public class QuaternaryCalculator extends JFrame{
         }
     }
     public void resultRequested(){
-
-        digitDisplay.clear();
+        //digitDisplay.clear();
         digitDisplay.displayResult(this.backend.doOperation(this.op,numbers));
     }
 
