@@ -5,16 +5,12 @@ import java.util.ArrayList;
 public class Operator {
     Converter converter = new Converter();
 
-    public String doOperation(String opSymbol, Object obj){
-        if (obj instanceof ArrayList){
-            ArrayList<String> objAsList = (ArrayList<String>) obj;
-            if (((ArrayList<String>) obj).size()>1){
-                return this.doOperation(opSymbol,objAsList.get(0),objAsList.get(1));
-            }else{
-                return this.doOperation(opSymbol,objAsList.get(0));
-            }
+    public String setOperation(String opSymbol, ArrayList<String> arrayList){
+        if (arrayList.size() == 1) {
+            return this.doSqrOperation(opSymbol,arrayList.get(0));
+        }else{
+            return this.doOperation(opSymbol,arrayList.get(0), arrayList.get(1));
         }
-        throw new IllegalArgumentException("doOperation passed invalid argument");
     }
 
     public String doOperation(String operationSymbol, String value1, String value2) {
@@ -28,7 +24,7 @@ public class Operator {
         }
     }
 
-    public String doOperation(String operationSymbol, String value1){
+    public String doSqrOperation(String operationSymbol, String value1){
         switch(operationSymbol){
             case "x²": return sqr(value1);
             case "√": return sqrt(value1);
@@ -77,6 +73,4 @@ public class Operator {
         int roundedsqrt = (int)Math.round(dsqrt);
         return converter.convertToQuaternary(roundedsqrt);
     }
-
-
 }

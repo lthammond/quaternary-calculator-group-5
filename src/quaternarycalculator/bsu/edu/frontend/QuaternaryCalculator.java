@@ -15,15 +15,12 @@ public class QuaternaryCalculator extends JFrame{
     private DigitDisplayController digitDisplay;
     private KeyPadController keyPad;
     private Operator backend;
-
-    private Converter converter;
     private Footer footer;
     private String op;
 
-    private boolean decimalMode = false;
+    public boolean decimalMode = false;
 
     public QuaternaryCalculator(){
-
         this.backend = new Operator();
         this.setSize(600, 800);
 
@@ -35,13 +32,10 @@ public class QuaternaryCalculator extends JFrame{
 
         footer = new Footer(this);
         footer.initialize();
-        this.pack();// this will override the setSize and auto adjust size to elements
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
 
     public void numberButtonPressed(String symbol){
-        //System.out.println(symbol);
         digitDisplay.addCharacterToDisplay(symbol);
         int pos;
         if (this.op == null){
@@ -59,8 +53,6 @@ public class QuaternaryCalculator extends JFrame{
         }else{
             this.numbers.add(symbol);
         }
-
-
     }
 
     public void operatorButtonPressed(String symbol){
@@ -69,29 +61,49 @@ public class QuaternaryCalculator extends JFrame{
             this.op = symbol;
         }
     }
-    public void resultRequested(){
 
-        digitDisplay.clear();
-        digitDisplay.displayResult(this.backend.doOperation(this.op,numbers));
+    public String resultRequested() {
+        if (!numbers.isEmpty() && this.op != null) {
+            digitDisplay.displayResult(this.backend.setOperation(this.op, numbers));
+            return "pass";
+        } else {
+            return "fail";
+        }
+
     }
 
     public void requestedClearScreen() {
         numbers.clear();
         this.op = null;
         digitDisplay.clear();
-
     }
 
     public void toggleResultBase(){
+        ArrayList<String> convertedList = new ArrayList<>();
         Converter converter = new Converter();
-        String result = this.backend.doOperation(this.op, numbers);
-        decimalMode = !decimalMode;
-        if(decimalMode) {
-            digitDisplay.clear();
-            digitDisplay.displayResult(String.valueOf(converter.convertToDecimal(result)));
-        } else {
-            digitDisplay.clear();
-            digitDisplay.displayResult(result);
+        if (!numbers.isEmpty()) {
+            if (!decimalMode) {
+                for (String number : numbers) {
+                    convertedList.add(String.valueOf(converter.convertToDecimal(number)));
+                }
+                digitDisplay.clear();
+                digitDisplay.addCharacterToDisplay(convertedList.get(0));
+                digitDisplay.addCharacterToDisplay(this.op);
+                if (convertedList.size() > 1) {
+                    digitDisplay.addCharacterToDisplay(convertedList.get(1));
+                }
+                digitDisplay.displayResult(String.valueOf(converter.convertToDecimal(this.backend.setOperation(this.op, numbers))));
+                decimalMode = true;
+            } else {
+                digitDisplay.clear();
+                digitDisplay.addCharacterToDisplay(numbers.get(0));
+                digitDisplay.addCharacterToDisplay(this.op);
+                if (numbers.size() > 1) {
+                    digitDisplay.addCharacterToDisplay(numbers.get(1));
+                }
+                digitDisplay.displayResult(this.backend.setOperation(this.op, numbers));
+                decimalMode = false;
+            }
         }
     }
 }

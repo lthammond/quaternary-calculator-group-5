@@ -8,37 +8,30 @@ import java.util.ArrayList;
 public class KeyPad extends JPanel {
     private ArrayList<KeyPadButton> operatorButtons;
     private ArrayList<KeyPadButton> numberButtons;
-
     public ArrayList<KeyPadButton> getOperatorButtons() {
         return operatorButtons;
     }
-
     public ArrayList<KeyPadButton> getNumberButtons() {
         return numberButtons;
     }
 
-    public KeyPad(){
-        //TODO: reduce redundant code
-        String[] numbers = {"0","1","2","3"};
+    public KeyPad() {
+        String[] numbers = {"0", "1", "2", "3"};
         this.numberButtons = new ArrayList<>();
-        for (String i :numbers){
+        for (String i : numbers) {
             this.numberButtons.add(new KeyPadButton(i));
         }
-        for (KeyPadButton b : this.numberButtons){
+        for (KeyPadButton b : this.numberButtons) {
             this.add(b);
         }
 
-        String[] operations = {"+","-","*","/","x²","√"};
+        String[] operations = {"+", "-", "*", "/", "x²", "√"};
         this.operatorButtons = new ArrayList<>();
-        for (String i :operations){
+        for (String i : operations) {
             this.operatorButtons.add(new KeyPadButton(i));
         }
-        for (KeyPadButton b : this.operatorButtons){
+        for (KeyPadButton b : this.operatorButtons) {
             this.add(b);
         }
-
-
     }
-
-
 }
