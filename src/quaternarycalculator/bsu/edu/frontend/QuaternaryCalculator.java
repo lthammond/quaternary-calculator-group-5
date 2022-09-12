@@ -7,6 +7,7 @@ import quaternarycalculator.bsu.edu.frontend.digitdisplay.DigitDisplayController
 import quaternarycalculator.bsu.edu.frontend.keypad.KeyPadController;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class QuaternaryCalculator extends JFrame{
@@ -20,12 +21,13 @@ public class QuaternaryCalculator extends JFrame{
     private Footer footer;
     private String op;
 
-    private boolean decimalMode = false;
+    public boolean decimalMode = false;
 
     public QuaternaryCalculator(){
 
         this.backend = new Operator();
-        this.setSize(600, 800);
+        this.setSize(360, 400);
+        this.getContentPane().setBackground(Color.DARK_GRAY);
 
         digitDisplay = new DigitDisplayController(this);
         digitDisplay.initialize();
@@ -35,7 +37,7 @@ public class QuaternaryCalculator extends JFrame{
 
         footer = new Footer(this);
         footer.initialize();
-        this.pack();// this will override the setSize and auto adjust size to elements
+        //this.pack();// this will override the setSize and auto adjust size to elements
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
