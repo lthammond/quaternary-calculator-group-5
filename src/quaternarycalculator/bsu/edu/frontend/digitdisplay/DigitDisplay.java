@@ -1,28 +1,24 @@
 package quaternarycalculator.bsu.edu.frontend.digitdisplay;
 
-import quaternarycalculator.bsu.edu.backend.Converter;
-
-import javax.lang.model.type.NullType;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
 
 public class DigitDisplay extends JPanel {
-    private JLabel displayLabel;
+    private JTextField display;
+
 
     public DigitDisplay(){
-
-        this.displayLabel = new JLabel();
-        this.add(this.displayLabel);
-
+        this.display = new JTextField(16);
+        display.setFont(new Font("Serif",Font.BOLD,40));
+        this.add(this.display);
     }
 
-    public void updateLabel(String s){
-        String cur = this.displayLabel.getText();
-        this.displayLabel.setText(cur+s);
+    public void updateDisplayContent(String s){
+        String cur = this.display.getText();
+        this.display.setText(cur+s);
     }
 
     public void clear(){
-        this.displayLabel.setText("");
+        this.display.setText("");
     }
 }

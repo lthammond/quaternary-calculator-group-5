@@ -1,6 +1,7 @@
 package quaternarycalculator.bsu.edu.frontend.keypad.buttons;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class KeyPadButton extends JButton {
     private String character;

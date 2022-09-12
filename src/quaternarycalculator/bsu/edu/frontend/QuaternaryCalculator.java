@@ -69,9 +69,15 @@ public class QuaternaryCalculator extends JFrame{
             this.op = symbol;
         }
     }
-    public void resultRequested(){
-        //digitDisplay.clear();
-        digitDisplay.displayResult(this.backend.doOperation(this.op,numbers));
+
+    public String resultRequested() {
+        if (!numbers.isEmpty() && this.op != null) {
+            digitDisplay.displayResult(this.backend.setOperation(this.op, numbers));
+            return "pass";
+        } else {
+            return "fail";
+        }
+
     }
 
     public void requestedClearScreen() {
@@ -82,15 +88,31 @@ public class QuaternaryCalculator extends JFrame{
     }
 
     public void toggleResultBase(){
+        ArrayList<String> convertedList = new ArrayList<>();
         Converter converter = new Converter();
-        String result = this.backend.doOperation(this.op, numbers);
-        decimalMode = !decimalMode;
-        if(decimalMode) {
-            digitDisplay.clear();
-            digitDisplay.displayResult(String.valueOf(converter.convertToDecimal(result)));
-        } else {
-            digitDisplay.clear();
-            digitDisplay.displayResult(result);
+        if (!numbers.isEmpty()) {
+            if (!decimalMode) {
+                for (String number : numbers) {
+                    convertedList.add(String.valueOf(converter.convertToDecimal(number)));
+                }
+                digitDisplay.clear();
+                digitDisplay.addCharacterToDisplay(convertedList.get(0));
+                digitDisplay.addCharacterToDisplay(this.op);
+                if (convertedList.size() > 1) {
+                    digitDisplay.addCharacterToDisplay(convertedList.get(1));
+                }
+                digitDisplay.displayResult(String.valueOf(converter.convertToDecimal(this.backend.setOperation(this.op, numbers))));
+                decimalMode = true;
+            } else {
+                digitDisplay.clear();
+                digitDisplay.addCharacterToDisplay(numbers.get(0));
+                digitDisplay.addCharacterToDisplay(this.op);
+                if (numbers.size() > 1) {
+                    digitDisplay.addCharacterToDisplay(numbers.get(1));
+                }
+                digitDisplay.displayResult(this.backend.setOperation(this.op, numbers));
+                decimalMode = false;
+            }
         }
     }
 }

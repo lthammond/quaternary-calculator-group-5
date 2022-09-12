@@ -3,7 +3,6 @@ package quaternarycalculator.bsu.edu.frontend.keypad;
 import quaternarycalculator.bsu.edu.frontend.QuaternaryCalculator;
 import quaternarycalculator.bsu.edu.frontend.keypad.buttons.KeyPadButton;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,10 +13,6 @@ public class KeyPadController {
     public KeyPadController(QuaternaryCalculator mainFrame){
         this.mainFrame = mainFrame;
         this.keyPad = new KeyPad();
-    }
-
-    public KeyPad getKeyPad(){
-        return this.keyPad;
     }
 
     public void initialize(){
@@ -46,5 +41,4 @@ public class KeyPadController {
             });
         }
     }
-
 }
