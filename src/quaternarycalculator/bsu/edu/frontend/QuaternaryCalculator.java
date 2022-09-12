@@ -11,20 +11,13 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class QuaternaryCalculator extends JFrame{
-
     ArrayList<String> numbers = new ArrayList<>();
-    private DigitDisplayController digitDisplay;
-    private KeyPadController keyPad;
-    private Operator backend;
-
-    private Converter converter;
-    private Footer footer;
+    public boolean decimalMode = false;
+    private final DigitDisplayController digitDisplay;
+    private final Operator backend;
     private String op;
 
-    public boolean decimalMode = false;
-
     public QuaternaryCalculator(){
-
         this.backend = new Operator();
         this.setSize(360, 400);
         this.getContentPane().setBackground(Color.DARK_GRAY);
@@ -32,18 +25,15 @@ public class QuaternaryCalculator extends JFrame{
         digitDisplay = new DigitDisplayController(this);
         digitDisplay.initialize();
 
-        keyPad = new KeyPadController(this);
+        KeyPadController keyPad = new KeyPadController(this);
         keyPad.initialize();
 
-        footer = new Footer(this);
+        Footer footer = new Footer(this);
         footer.initialize();
-        //this.pack();// this will override the setSize and auto adjust size to elements
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
 
     public void numberButtonPressed(String symbol){
-        //System.out.println(symbol);
         digitDisplay.addCharacterToDisplay(symbol);
         int pos;
         if (this.op == null){
@@ -61,8 +51,6 @@ public class QuaternaryCalculator extends JFrame{
         }else{
             this.numbers.add(symbol);
         }
-
-
     }
 
     public void operatorButtonPressed(String symbol){
@@ -79,14 +67,12 @@ public class QuaternaryCalculator extends JFrame{
         } else {
             return "fail";
         }
-
     }
 
     public void requestedClearScreen() {
         numbers.clear();
         this.op = null;
         digitDisplay.clear();
-
     }
 
     public void toggleResultBase(){

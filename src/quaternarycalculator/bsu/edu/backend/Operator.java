@@ -14,23 +14,21 @@ public class Operator {
     }
 
     public String doOperation(String operationSymbol, String value1, String value2) {
-        switch (operationSymbol) {
-            case "+":  return add(value1, value2);
-            case "-":  return subtract(value1, value2);
-            case "*":  return multiply(value1, value2);
-            case "/":  return divide(value1, value2);
-            default:
-                throw new IllegalArgumentException("Unexpected Operation: " + operationSymbol);
-        }
+        return switch (operationSymbol) {
+            case "+" -> add(value1, value2);
+            case "-" -> subtract(value1, value2);
+            case "*" -> multiply(value1, value2);
+            case "/" -> divide(value1, value2);
+            default -> throw new IllegalArgumentException("Unexpected Operation: " + operationSymbol);
+        };
     }
 
     public String doSqrOperation(String operationSymbol, String value1){
-        switch(operationSymbol){
-            case "x²": return sqr(value1);
-            case "√": return sqrt(value1);
-            default:
-                throw new IllegalArgumentException("Unexpected Operation: " + operationSymbol);
-        }
+        return switch (operationSymbol) {
+            case "x²" -> sqr(value1);
+            case "√" -> sqrt(value1);
+            default -> throw new IllegalArgumentException("Unexpected Operation: " + operationSymbol);
+        };
     }
 
     private String add(String addend1, String addend2) {

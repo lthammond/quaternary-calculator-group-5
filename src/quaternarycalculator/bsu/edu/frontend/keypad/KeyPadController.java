@@ -2,23 +2,14 @@ package quaternarycalculator.bsu.edu.frontend.keypad;
 
 import quaternarycalculator.bsu.edu.frontend.QuaternaryCalculator;
 import quaternarycalculator.bsu.edu.frontend.keypad.buttons.KeyPadButton;
-
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class KeyPadController {
-
-    private QuaternaryCalculator mainFrame;
-    private KeyPad keyPad;
+    private final QuaternaryCalculator mainFrame;
+    private final KeyPad keyPad;
     public KeyPadController(QuaternaryCalculator mainFrame){
         this.mainFrame = mainFrame;
         this.keyPad = new KeyPad();
-    }
-
-    public KeyPad getKeyPad(){
-        return this.keyPad;
     }
 
     public void initialize(){
@@ -31,23 +22,13 @@ public class KeyPadController {
 
     private void setNumberButtonEvent(){
         for (KeyPadButton btn : this.keyPad.getNumberButtons()){
-            btn.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mainFrame.numberButtonPressed(btn.getSymbol());
-                }
-            });
-        }
-    }
-    public void setOperatorButtonEvent(){
-        for (KeyPadButton btn : this.keyPad.getOperatorButtons()){
-            btn.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mainFrame.operatorButtonPressed(btn.getSymbol());
-                }
-            });
+            btn.addActionListener(e -> mainFrame.numberButtonPressed(btn.getSymbol()));
         }
     }
 
+    public void setOperatorButtonEvent(){
+        for (KeyPadButton btn : this.keyPad.getOperatorButtons()){
+            btn.addActionListener(e -> mainFrame.operatorButtonPressed(btn.getSymbol()));
+        }
+    }
 }

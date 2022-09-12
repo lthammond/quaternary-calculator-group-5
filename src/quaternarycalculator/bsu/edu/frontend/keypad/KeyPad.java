@@ -1,19 +1,17 @@
 package quaternarycalculator.bsu.edu.frontend.keypad;
 
 import quaternarycalculator.bsu.edu.frontend.keypad.buttons.KeyPadButton;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class KeyPad extends JPanel {
-    private ArrayList<KeyPadButton> operatorButtons;
-    private ArrayList<KeyPadButton> numberButtons;
+    private final ArrayList<KeyPadButton> operatorButtons;
+    private final ArrayList<KeyPadButton> numberButtons;
 
     public ArrayList<KeyPadButton> getOperatorButtons() {
         return operatorButtons;
     }
-
     public ArrayList<KeyPadButton> getNumberButtons() {
         return numberButtons;
     }
@@ -40,11 +38,7 @@ public class KeyPad extends JPanel {
         for (KeyPadButton b : this.operatorButtons) {
             b.setFont(new Font("Serif",Font.BOLD,40));
             this.add(b);
-
         }
         this.setBackground(Color.DARK_GRAY);
-
     }
-
-
 }

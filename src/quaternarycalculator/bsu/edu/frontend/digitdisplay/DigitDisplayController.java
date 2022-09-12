@@ -2,14 +2,12 @@ package quaternarycalculator.bsu.edu.frontend.digitdisplay;
 
 import quaternarycalculator.bsu.edu.frontend.QuaternaryCalculator;
 
-
 public class DigitDisplayController {
-    private DigitDisplay display;
-    private QuaternaryCalculator mainFrame;
+    private final DigitDisplay display;
+    private final QuaternaryCalculator mainFrame;
 
     public DigitDisplayController(QuaternaryCalculator mainFrame) {
         this.mainFrame = mainFrame;
-
         this.display = new DigitDisplay();
     }
     public void initialize(){

@@ -1,16 +1,10 @@
 package quaternarycalculator.bsu.edu.frontend.digitdisplay;
 
-import quaternarycalculator.bsu.edu.backend.Converter;
-
-import javax.lang.model.type.NullType;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class DigitDisplay extends JPanel {
-    private JTextField display;
-
+    private final JTextField display;
 
     public DigitDisplay(){
         this.display = new JTextField(9);
