@@ -8,6 +8,12 @@ Lauch Application, Use follows similarly to most calculator apps
 CC Button to clear display and reset Calculation
 Calculator can not be used when toggled into decimal mode.
 
+Screenshots of the Calculator
+
+<img width="356" alt="Screen Shot 2022-09-11 at 9 47 55 PM" src="https://user-images.githubusercontent.com/46658947/189560775-5e884f98-7b98-401c-9300-809578ffaf65.png">
+
+<img width="354" alt="Screen Shot 2022-09-11 at 9 49 14 PM" src="https://user-images.githubusercontent.com/46658947/189560800-d461855e-5b51-4f98-8caf-812970756210.png">
+
 ## Task Distribution
 ### Backend
 * Landon Hammond = Addition and Subtraction Functionality
@@ -37,8 +43,4 @@ Calculator can not be used when toggled into decimal mode.
   
  ### JUnit 5
  
- Screenshots of the Calculator
-
-<img width="356" alt="Screen Shot 2022-09-11 at 9 47 55 PM" src="https://user-images.githubusercontent.com/46658947/189560775-5e884f98-7b98-401c-9300-809578ffaf65.png">
-
-<img width="354" alt="Screen Shot 2022-09-11 at 9 49 14 PM" src="https://user-images.githubusercontent.com/46658947/189560800-d461855e-5b51-4f98-8caf-812970756210.png">
+ 
